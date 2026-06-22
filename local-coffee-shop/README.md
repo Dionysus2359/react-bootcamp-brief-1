@@ -7,7 +7,7 @@ Welcome to your first React Bootcamp challenge!
 1. **Start your project:** Click the green **"Use this template"** button at the top of this repository to create your own copy. DO NOT fork it.
 2. **Clone your new repo:** `git clone <your-repo-url>`
 3. **Install dependencies:** Run `npm install` and `npm run dev` to start.
-4. **Build the app:** Follow the brief requirements.
+4. **Build the app:** Follow the brief requirements. Be sure to fetch the provided `/menu.json` file on mount to render your menu items!
 5. **Deploy:** Deploy your `main` branch to Vercel.
 
 ## How to Submit & Get Graded
