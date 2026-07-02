@@ -58,14 +58,15 @@ jobs:
             
             // --- 1. LIGHTHOUSE SCORING ---
             let manifest;
+            const resultsPath = '${{ steps.lighthouse.outputs.resultsPath }}';
             try {
-              manifest = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'));
+              manifest = JSON.parse(fs.readFileSync(path.join(resultsPath, 'manifest.json'), 'utf8'));
             } catch (err) {
-              core.setFailed("Could not read Lighthouse manifest. Did the audit run successfully?");
+              core.setFailed("Could not read Lighthouse manifest. Did the audit run successfully? " + err.message);
               return;
             }
             
-            const reportPath = path.join('.lighthouseci', manifest[0].jsonPath);
+            const reportPath = path.join(resultsPath, manifest[0].jsonPath);
             const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
             
             const perf = report.categories.performance.score;
