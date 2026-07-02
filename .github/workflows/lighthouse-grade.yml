@@ -118,7 +118,8 @@ jobs:
 
             let failedTestsMarkdown = '';
             if (failedTestsList.length > 0) {
-              failedTestsMarkdown = '\\n**Failed Requirements:**\\n' + failedTestsList.map(t => '- ❌ ' + t).join('\\n');
+              const listItems = failedTestsList.map(t => '- ❌ ' + t).join(`\n`);
+              failedTestsMarkdown = `\n\n**Failed Requirements:**\n` + listItems;
             }
 
             const totalAutomatedScore = lighthousePoints + testPoints;
